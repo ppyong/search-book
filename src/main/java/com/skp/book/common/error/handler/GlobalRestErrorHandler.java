@@ -1,4 +1,4 @@
-package com.skp.book.common.error;
+package com.skp.book.common.error.handler;
 
 import org.springframework.core.annotation.Order;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

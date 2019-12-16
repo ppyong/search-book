@@ -18,7 +18,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.formLogin()
-                .loginPage("")
+                .loginPage("/login")
+                .loginProcessingUrl("/authenticate")
+                .defaultSuccessUrl("/index")
                 .permitAll();
+
+        http.authorizeRequests()
+                .antMatchers("/css/**", "/img/**", "/js/**")
+                .permitAll()
+                .anyRequest().authenticated();
     }
 }
