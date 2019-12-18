@@ -5,10 +5,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Data
 @Builder
 @AllArgsConstructor
-public class Search {
-    private long offset;
-    private int length;
+public class History {
+    private String keyword;
+    private LocalDateTime time;
+    private String userId;
 }

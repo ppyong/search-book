@@ -1,5 +1,6 @@
 package com.skp.book.common.security;
 
+import com.skp.book.user.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -16,12 +17,11 @@ public class CustomAutenticationProvider implements AuthenticationProvider {
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        String id = authentication.getName();
-
-        UserDetails userDetails = userDetailsService.loadUserByUsername(id);
-        if(!((String)authentication.getCredentials()).equals(userDetails.getPassword())){
-            throw new RuntimeException("");
-        }
+        UserDetails userDetails = userDetailsService.loadUserByUsername(authentication.getName());
+        //User user = User.builder()
+        //                    .username(userDetails.getUsername())
+        //                    .password(userDetails.getPassword())
+        //                .build();
         return new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities());
     }
 

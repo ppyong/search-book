@@ -22,13 +22,13 @@ public class UserService {
      * @param user
      */
     public void join(User user){
-        log.info("::: Trying to login with user's id -> {} :::", user.getUserId());
+        //log.info("::: Trying to login with user's id -> {} :::", user.getUserId());
 
-        if(userRepository.findByUserId(user.getUserId()) == null){
-            UserEntity userEntity = objectMapper.convertValue(user, UserEntity.class);
-            userRepository.save(userEntity);
-        }
-        throw new DuplicateUserIdException(user.getUserId());
+        //if(userRepository.findByUserId(user.getUserId()) == null){
+        //    UserEntity userEntity = objectMapper.convertValue(user, UserEntity.class);
+        //    userRepository.save(userEntity);
+        //}
+        //throw new DuplicateUserIdException(user.getUserId());
     }
 
     /**
